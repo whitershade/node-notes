@@ -11,26 +11,20 @@ switch (command) {
     const note = notes.add(argv.title, argv.body);
     if (note) {
       console.log('Note created.');
-      console.log('----');
-      console.log(`Title: ${note.title}`);
-      console.log(`Body: ${note.body}`);
+      notes.logNote(note);
     } else {
       console.log('Note title already exists');
     }
     break;
   case 'list':
-    notes.getAll().forEach(note => {
-      console.log('----');
-      console.log(`Title: ${note.title}`);
-      console.log(`Body: ${note.body}`);
-    });
+    console.log('List of notes:');
+    notes.getAll().forEach(note => notes.logNote(note));
     break;
   case 'get':
-    const findedNote = notes.get(argv.title);
-    if (findedNote) {
-      console.log('----');
-      console.log(`Title: ${findedNote.title}`);
-      console.log(`Body: ${findedNote.body}`);
+    const foundNote = notes.get(argv.title);
+    if (foundNote) {
+      console.log('Note found.');
+      notes.logNote(foundNote);
     } else {
       console.log('Note was not found');
     }

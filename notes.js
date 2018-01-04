@@ -41,9 +41,16 @@ const remove = title => {
   }
 };
 
+const logNote = ({ title, body }) => {
+  console.log('----');
+  console.log(`Title: ${title}`);
+  console.log(`Body: ${body}`);
+};
+
 module.exports = {
   add,
   getAll,
   get,
-  remove
+  remove,
+  logNote
 };
