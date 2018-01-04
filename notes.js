@@ -27,18 +27,18 @@ const add = (title, body) => {
   }
 };
 
-const getAll = () => {
-  const note = fs.readFileSync('./notes.json');
+const getAll = () => fetchNotes();
 
-  console.log(JSON.parse(note));
-};
-
-const get = title => {
-  console.log('read: ' + title);
-};
+const get = title => fetchNotes().find(note => note.title === title);
 
 const remove = title => {
-  console.log('remove: ' + title);
+  const notes = fetchNotes();
+  const notesWithoutDeletedNote = notes.filter(note => note.title !== title);
+
+  if (notes.length !== notesWithoutDeletedNote.length) {
+    saveNotes(notesWithoutDeletedNote);
+    return true;
+  }
 };
 
 module.exports = {

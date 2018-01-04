@@ -1,1 +1,7 @@
-[{"title":"second note","body":"body of first note"},{"title":"first note","body":"body of first note"},{"title":"third note","body":"body of first note"},{"title":"fourth note","body":"body of first note"},{"title":"fifth note","body":"body of first note"}]
+[
+  { "title": "second", "body": "body of first note" },
+  { "title": "first", "body": "body of first note" },
+  { "title": "third", "body": "body of first note" },
+  { "title": "fourth", "body": "body of first note" },
+  { "title": "fifth", "body": "body of first note" }
+]

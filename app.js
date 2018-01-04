@@ -19,13 +19,26 @@ switch (command) {
     }
     break;
   case 'list':
-    notes.getAll();
+    notes.getAll().forEach(note => {
+      console.log('----');
+      console.log(`Title: ${note.title}`);
+      console.log(`Body: ${note.body}`);
+    });
     break;
   case 'get':
-    notes.get(argv.title);
+    const findedNote = notes.get(argv.title);
+    if (findedNote) {
+      console.log('----');
+      console.log(`Title: ${findedNote.title}`);
+      console.log(`Body: ${findedNote.body}`);
+    } else {
+      console.log('Note was not found');
+    }
     break;
   case 'remove':
-    notes.remove(argv.title);
+    const isRemoved = notes.remove(argv.title);
+    const message = isRemoved ? 'Note was removed' : 'Note not found';
+    console.log(message);
     break;
   default:
     console.log('command does not recognize');
