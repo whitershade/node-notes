@@ -8,7 +8,15 @@ const command = process.argv[2]; // node app.js THIRD_ARGUMENT
 
 switch (command) {
   case 'add':
-    notes.add(argv.title, argv.body);
+    const note = notes.add(argv.title, argv.body);
+    if (note) {
+      console.log('Note created.');
+      console.log('----');
+      console.log(`Title: ${note.title}`);
+      console.log(`Body: ${note.body}`);
+    } else {
+      console.log('Note title already exists');
+    }
     break;
   case 'list':
     notes.getAll();
